@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+PyJWT
+Werkzeug
+pymysql
+python-dotenv
+cryptography
