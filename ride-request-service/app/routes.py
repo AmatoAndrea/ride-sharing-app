@@ -3,7 +3,6 @@ import uuid
 from datetime import datetime, timezone
 from enum import Enum
 from app.utils import token_required
-from app.logger import setup_logging
 
 ride_bp = Blueprint('ride_bp', __name__)
 
