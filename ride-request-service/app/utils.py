@@ -13,6 +13,7 @@ def token_required(f):
             token = auth_header[len('Bearer '):]
 
         if not token:
+            current_app.logger.warning("Token is missing")
             return jsonify({'message': 'Token is missing'}), 401
         
         try:

@@ -1,3 +1,5 @@
 Flask
 flask_pymongo
 PyJWT
+requests
+kafka-python

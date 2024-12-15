@@ -11,7 +11,7 @@ class UserRole(Enum):
 class User(db.Model):
     __tablename__ = 'users'
 
-    user_id = db.Column(db.String(36), primary_key=True, default=str(uuid.uuid4()))
+    user_id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     username = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
