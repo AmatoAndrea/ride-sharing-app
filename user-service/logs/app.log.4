@@ -1,4 +1,4 @@
-2024-12-08 00:20:03,386 ERROR: Exception on /users/register [POST] [in /usr/local/lib/python3.9/site-packages/flask/app.py:875]
+2024-12-08 00:21:28,018 ERROR: Exception on /users/register [POST] [in /usr/local/lib/python3.9/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
     self.dialect.do_execute(
@@ -99,6 +99,6 @@ Traceback (most recent call last):
     raise errorclass(errno, errval)
 sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'f1ade4ac-cead-47fc-95f6-089d3b6166f1' for key 'users.PRIMARY'")
 [SQL: INSERT INTO users (user_id, username, password_hash, email, `role`, created_at) VALUES (%(user_id)s, %(username)s, %(password_hash)s, %(email)s, %(role)s, now())]
-[parameters: {'user_id': 'f1ade4ac-cead-47fc-95f6-089d3b6166f1', 'username': 'andrea', 'password_hash': 'scrypt:32768:8:1$Y8L3ojS6u5f8R5s8$d49af6c75611cdf922c0bc421c970494739b3554a31d52d9824c781b01c860245fba6d64635bd6a3df2fc5822394fad08105ecfec9cd82084f64730e8636041f', 'email': 'andrea@gmail.com', 'role': 'rider'}]
+[parameters: {'user_id': 'f1ade4ac-cead-47fc-95f6-089d3b6166f1', 'username': 'andrea', 'password_hash': 'scrypt:32768:8:1$jqhHdj3sEsqilXq1$faa32f48a74ca2a2aa243964bd24d2e1f48bb64e1f27efc3635a5c1883dc5e7bec5cdbfa5eb40b7a808d2680be634737752fd5a82561fff355ad57d967a08c84', 'email': 'andrea@gmail.com', 'role': 'rider'}]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
-2024-12-08 00:21:27,426 INFO: Register attempt for username: andrea [in /app/app/routes.py:18]
+2024-12-08 00:22:44,275 INFO: Register attempt for username: andrea_amato [in /app/app/routes.py:18]

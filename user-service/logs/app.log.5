@@ -1,39 +1,104 @@
-2024-12-01 17:29:59,960 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-01 17:30:38,476 INFO: Fetching user by username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:90]
-2024-12-01 17:30:38,495 INFO: User found: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:99]
-2024-12-01 17:31:17,990 INFO: Login attempt for username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-01 17:31:18,145 INFO: User logged in successfully: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 10:46:05,675 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 10:46:31,123 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 10:49:54,514 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 10:50:38,941 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 10:52:03,451 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 11:04:29,837 INFO: Login attempt for username: andrea_amato [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 11:04:30,049 INFO: User logged in successfully: andrea_amato [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 11:30:59,707 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 12:27:23,810 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-02 12:29:38,486 INFO: Login attempt for username: andrea_amato [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 12:29:38,694 INFO: User logged in successfully: andrea_amato [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 12:55:39,924 INFO: Login attempt for username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 12:55:40,340 INFO: User logged in successfully: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 13:07:22,117 INFO: Login attempt for username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 13:07:22,286 INFO: User logged in successfully: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 13:07:38,581 INFO: Login attempt for username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 13:07:38,782 INFO: User logged in successfully: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 13:07:43,392 INFO: Login attempt for username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 13:07:43,542 INFO: User logged in successfully: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-02 13:07:45,339 INFO: Login attempt for username: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-02 13:07:45,487 INFO: User logged in successfully: pippo [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-03 18:09:40,474 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-03 19:07:02,659 INFO: Login attempt for username: andrea_amato [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:50]
-2024-12-03 19:07:02,926 INFO: User logged in successfully: andrea_amato [in /Users/andreaamato/git/ride-sharing-app/user-service/app/routes.py:64]
-2024-12-03 23:35:58,536 INFO: Application startup [in /Users/andreaamato/git/ride-sharing-app/user-service/app/logger.py:19]
-2024-12-07 23:28:36,141 INFO: Application startup [in /app/app/logger.py:19]
-2024-12-07 23:48:28,801 INFO: Application startup [in /app/app/logger.py:19]
-2024-12-08 00:01:35,207 INFO: Application startup [in /app/app/logger.py:19]
-2024-12-08 00:06:02,420 INFO: Application startup [in /app/app/logger.py:19]
-2024-12-08 00:12:52,316 INFO: Application startup [in /app/app/logger.py:19]
-2024-12-08 00:15:46,180 INFO: Application startup [in /app/app/logger.py:19]
-2024-12-08 00:18:47,754 INFO: Register attempt for username: pippo [in /app/app/routes.py:18]
-2024-12-08 00:18:47,929 INFO: User registered successfully: pippo [in /app/app/routes.py:41]
-2024-12-08 00:20:03,000 INFO: Register attempt for username: andrea [in /app/app/routes.py:18]
+2024-12-08 00:20:03,386 ERROR: Exception on /users/register [POST] [in /usr/local/lib/python3.9/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'f1ade4ac-cead-47fc-95f6-089d3b6166f1' for key 'users.PRIMARY'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/app/app/routes.py", line 39, in register
+    db.session.commit()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.9/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.9/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'f1ade4ac-cead-47fc-95f6-089d3b6166f1' for key 'users.PRIMARY'")
+[SQL: INSERT INTO users (user_id, username, password_hash, email, `role`, created_at) VALUES (%(user_id)s, %(username)s, %(password_hash)s, %(email)s, %(role)s, now())]
+[parameters: {'user_id': 'f1ade4ac-cead-47fc-95f6-089d3b6166f1', 'username': 'andrea', 'password_hash': 'scrypt:32768:8:1$Y8L3ojS6u5f8R5s8$d49af6c75611cdf922c0bc421c970494739b3554a31d52d9824c781b01c860245fba6d64635bd6a3df2fc5822394fad08105ecfec9cd82084f64730e8636041f', 'email': 'andrea@gmail.com', 'role': 'rider'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-12-08 00:21:27,426 INFO: Register attempt for username: andrea [in /app/app/routes.py:18]

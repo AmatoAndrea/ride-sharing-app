@@ -72,19 +72,6 @@ def consume_ride_requests(app):
                     app.logger.info(f"Removed ride {ride_request['request_id']} from driver {driver_id}'s assigned rides")
                     continue
 
-                # TODO: Implement the SAGA pattern by updating the ride status in the ride-request-service
-                # Potential steps to implement:
-                # 1. Send a request to the ride-request-service to update the ride status to 'ACCEPTED'.
-                # 2. Ensure the ride-request-service updates the status successfully.
-                # 3. If the ride-request-service fails to update the status, revert the driver status to 'AVAILABLE'.
-                # 4. Implement compensating actions if the ride assignment fails at any step.
-                # ...
             else:
                 app.logger.warning("No available drivers for ride request")
-                # TODO: No available drivers; implement a compensating action (SAGA):
-                # Possible actions:
-                # 1. Notifying the ride-request-service to update the ride status to 'FAILED' or 'PENDING'.
-                # 2. Sending a notification to the user informing them that no drivers are available.
-                # 3. Implementing a retry mechanism to attempt to find a driver again after a certain period.
-                # 4. Updating the ride status back to 'pending' or 'failed' in the ride-request-service DB.
-                # ...
+                continue
