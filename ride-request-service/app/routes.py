@@ -63,11 +63,15 @@ def create_ride_request():
         'created_at': datetime.now(timezone.utc).isoformat()
     }
 
+    # Save ride request to MongoDB
+    current_app.mongo.db.ride_requests.insert_one(ride_request)
+
+    # Remove '_id' field added by MongoDB
+    ride_request.pop('_id', None)
+
     # Send ride request to Kafka
     current_app.kafka_producer.send(current_app.config['KAFKA_TOPIC'], ride_request)
     current_app.kafka_producer.flush()
-    # Save ride request to MongoDB
-    current_app.mongo.db.ride_requests.insert_one(ride_request)
 
     current_app.logger.info(f"Ride request created successfully: {request_id}")
     return jsonify({'request_id': request_id, 'status': RideStatus.PENDING.value}), 201
@@ -89,23 +93,23 @@ def get_ride_status(request_id):
         return jsonify({'message': 'Ride request not found'}), 404
         # return jsonify({'message': 'Ride request not found or user not authorized'}), 404
 
-# @ride_bp.route('/rides/update_status', methods=['PUT'])
+@ride_bp.route('/rides/update_status', methods=['PUT'])
 # @token_required
-# def update_ride_status():
-#     data = request.get_json()
-#     request_id = data.get('request_id')
-#     new_status = data.get('status')
-#     # Validate input
-#     if not all([request_id, new_status]):
-#         return jsonify({'message': 'Missing required fields'}), 400
-#     # Update ride status in MongoDB
-#     result = current_app.mongo.db.ride_requests.update_one(
-#         {'request_id': request_id},
-#         {'$set': {'status': new_status}}
-#     )
-#     if result.matched_count:
-#         current_app.logger.info(f"Ride status updated to {new_status} for request_id: {request_id}")
-#         return jsonify({'message': 'Ride status updated successfully'}), 200
-#     else:
-#         current_app.logger.warning("Ride request not found")
-#         return jsonify({'message': 'Ride request not found'}), 404
+def update_ride_status():
+    data = request.get_json()
+    request_id = data.get('request_id')
+    new_status = data.get('status')
+    # Validate input
+    if not all([request_id, new_status]):
+        return jsonify({'message': 'Missing required fields'}), 400
+    # Update ride status in MongoDB
+    result = current_app.mongo.db.ride_requests.update_one(
+        {'request_id': request_id},
+        {'$set': {'status': new_status}}
+    )
+    if result.matched_count:
+        current_app.logger.info(f"Ride status updated to {new_status} for request_id: {request_id}")
+        return jsonify({'message': 'Ride status updated successfully'}), 200
+    else:
+        current_app.logger.warning("Ride request not found")
+        return jsonify({'message': 'Ride request not found'}), 404

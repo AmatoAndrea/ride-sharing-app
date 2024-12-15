@@ -1,7 +1,7 @@
 from datetime import datetime
 import json
 from enum import Enum
-# import requests
+import requests
 
 from app.utils import find_available_driver
 
@@ -48,26 +48,29 @@ def consume_ride_requests(app):
                 app.redis_client.rpush(assigned_rides_key, json.dumps(ride_request))
                 app.logger.info(f"Assigned ride {ride_request['request_id']} to driver: {driver_id}")
 
-                # # Update ride status in ride-request-service
-                # ride_request_service_url = app.config.get('RIDE_REQUEST_SERVICE_URL')
-                # try:
-                #     response = requests.put(
-                #         f"{ride_request_service_url}/rides/update_status",
-                #         json={
-                #             'request_id': ride_request['request_id'],
-                #             'status': RideStatus.ACCEPTED.value
-                #         },
-                #         timeout=5
-                #     )
-                #     response.raise_for_status()
-                #     app.logger.info(f"Ride status updated to ACCEPTED for request_id: {ride_request['request_id']}")
-                # except requests.exceptions.RequestException as e:
-                #     app.logger.error(f"Failed to update ride status: {e}")
-                #     # Revert driver's status to AVAILABLE
-                #     app.redis_client.sadd('available_drivers', driver_id)
-                #     app.logger.info(f"Driver {driver_id} status reverted to AVAILABLE")
-                #     # Handle failure to update ride status
-                #     continue
+                # Update ride status in ride-request-service
+                ride_request_service_url = app.config.get('RIDE_REQUEST_SERVICE_URL')
+                try:
+                    response = requests.put(
+                        f"{ride_request_service_url}/rides/update_status",
+                        json={
+                            'request_id': ride_request['request_id'],
+                            'status': RideStatus.ACCEPTED.value
+                        },
+                        timeout=5
+                    )
+                    response.raise_for_status()
+                    app.logger.info(f"Ride status updated to ACCEPTED for request_id: {ride_request['request_id']}")
+                except requests.exceptions.RequestException as e:
+                    app.logger.error(f"Failed to update ride status: {e}")
+                    # Revert driver's status to AVAILABLE
+                    app.redis_client.sadd('drivers:available', driver_id)
+                    app.logger.info(f"Driver {driver_id} status reverted to AVAILABLE")
+                    # Remove the ride request from assigned rides
+                    assigned_rides_key = f"driver:{driver_id}:assigned_rides"
+                    app.redis_client.lrem(assigned_rides_key, 0, json.dumps(ride_request))
+                    app.logger.info(f"Removed ride {ride_request['request_id']} from driver {driver_id}'s assigned rides")
+                    continue
 
                 # TODO: Implement the SAGA pattern by updating the ride status in the ride-request-service
                 # Potential steps to implement:

@@ -17,10 +17,13 @@ def update_driver_status():
         return jsonify({'error': 'Missing required parameters'}), 400
     
     # Update driver status
-    driver_id_key = f"driver:{driver_id}"
-    current_app.redis_client.set(driver_id_key, status)
+    if status == 'AVAILABLE':
+        current_app.redis_client.sadd('drivers:available', driver_id)
+        current_app.logger.info(f"Driver {driver_id} set to AVAILABLE")
+    else:
+        current_app.redis_client.srem('drivers:available', driver_id)
+        current_app.logger.info(f"Driver {driver_id} set to UNAVAILABLE")
 
-    current_app.logger.info(f"Driver status updated: {status}")
     return jsonify({'message': 'Driver status updated'}), 200
 
 @driver_bp.route('/drivers/assigned_rides/<driver_id>', methods=['GET'])
